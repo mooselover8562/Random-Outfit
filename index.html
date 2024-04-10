@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Random Outfit</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-family: "Lucida Console", monospace;
+            margin: 0;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            font-size: 20px;
+            font-family: "Lucida Console", monospace;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        img {
+            visibility: hidden;
+        }
+        #a1, #a2, #a3 {
+        	height: 100px;
+        }
+        #hat, #hoodie, #pants {
+            margin-bottom: -30px;
+        }
+        #hat, #hoodie, #pants, #shoes {
+            width: 125px;
+        }
+
+        .small-images-container {
+            display: flex;
+            justify-content: center
+        }
+    </style>
+</head>
+<body>
+    <t id="header">FIND A NEW 🔥 FIT</t>
+    <br>
+    <div class="image-container">
+        <img id="hat" src="https://cdn.shoplightspeed.com/shops/615398/files/32896586/650x750x2/new-era-new-era-washington-nationals-fitted-5950-h.jpg">
+        <img id="hoodie" src="https://images.stockx.com/images/Fear-of-God-Essentials-Hoodie-Off-Black.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&dpr=2&trim=color&updated_at=1664401002&q=60">
+        <img id="pants" src="https://hespokestyle.com/wp-content/uploads/2023/08/khaki-cotton-pants-he-spoke-style-shop.png">
+        <img id="shoes" src="https://www.creativefabrica.com/wp-content/uploads/2023/01/24/Front-view-of-female-shoes-vector-illust-Graphics-58740211-1.jpg">
+        
+    </div>
+    <div class="small-images-container">
+        <img id = "a1", class="small-img" src="https://via.placeholder.com/100">
+        <img id = "a2", class="small-img" src="https://via.placeholder.com/100">
+        <img id = "a3", class="small-img" src="https://via.placeholder.com/100">
+    </div>
+    <br>
+    <button id="generate" onclick="generate()">Generate Outfit</button>
+    
+</body>
+<script>
+    let shoes = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"]
+    let shoenames = ["Snoopy Crocs", "Uggs", "Dunks", "Notre Dame Slides", "Nick's Crocs", "Blazers", "Giannises", "Yeezy Slides"]
+    let hats = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"]
+    let hatnames = ["Red Cardinals", "Navy Cardinals", "Red Vineyard Vines", "BCC Dodgers", "LA Dodgers", "Beat Vineyard Vines", "Kenmont Bucket", "Great Smokey Mountains", "BCC Flying Squirrels", "Brown Phillies", "Red Phillies"]
+    let pants = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p10", "p12", "p13", "p14", "p15"]
+    let pantnames = ["Fuzzy Green Pants", "Church Pants", "Soccer Coach Pants", "UA Sweats", "Navy Soccer Pants", "Grey Nike Joggers", "Olive Cargos", "Tech Pants", "Baggy Black Jeans", "Fake Tech Pants", "Concert Pants", "Grey Soccer Pants", "Black Soccer Pants"]
+    let hoodies = ["h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8", "h9", "h11", "h12", "h13", "h14", "h15", "h16"]
+    let hoodienames = ["Essentials Hoodie", "NYC Nike Hoodie", "Avalon Hoodie", "Tan Nike Hoodie", "Blue DSG Hoodie", "Adidias Hoodie", "Black Nike Hoodie", "Wawa Hoodie", "ND Jansport Hoodie", "Grey Nike Hoodie", "Volexity Hoodie", "UA Notre Dame Hoodie", "North Face Hoodie", "Have A Nike Day", "White Nike"]
+    let accessories = ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10", "a11", "a12"]
+
+    function generate() {
+        let shoepic = document.getElementById("shoes")
+        let hatpic = document.getElementById("hat")
+        let pantspic = document.getElementById("pants")
+        let hoodiepic = document.getElementById("hoodie")
+        let a1pic = document.getElementById("a1")
+        let a2pic = document.getElementById("a2")
+        let a3pic = document.getElementById("a3")
+        let headerlabel = document.getElementById("header")
+
+        hatpic.style.visibility = "hidden"
+        shoepic.style.visibility = "hidden"
+        pantspic.style.visibility = "hidden"
+        hoodiepic.style.visibility = "hidden"
+       	a1pic.style.visibility = "hidden"
+        a2pic.style.visibility = "hidden"
+        a3pic.style.visibility = "hidden"
+        headerlabel.style.visibility = "hidden"
+
+
+        // Get random element for each kind of clothing
+        var shoeindex = Math.floor(Math.random()*shoes.length)
+        var hatindex = Math.floor(Math.random()*hats.length)
+        var pantsindex = Math.floor(Math.random()*pants.length)
+        var hoodieindex = Math.floor(Math.random()*hoodies.length)
+
+        // SET VALUES OF ITEMS
+        var shoe = shoes[shoeindex]
+        var shoename = shoenames[shoeindex]
+        var hat = hats[hatindex]
+        var hatname = hatnames[hatindex]
+        var pant = pants[pantsindex]
+        var pantname = pantnames[pantsindex]
+        var hoodie = hoodies[hoodieindex]
+        var hoodiename = hoodienames[hoodieindex]
+
+        // SET VALUE OF ACCESSORIES
+        let accessory1 = accessories[Math.floor(Math.random()*accessories.length)]
+        var accessory2 = accessories[Math.floor(Math.random()*accessories.length)]
+        var accessory3 = accessories[Math.floor(Math.random()*accessories.length)]
+        if (accessory2 === accessory1) {
+        	while (accessory2 === accessory1) {
+        		accessory2 = accessories[Math.floor(Math.random()*accessories.length)]
+        	}
+        }
+        if (accessory3 === accessory2 || accessory3 === accessory1) {
+        	while (accessory3 === accessory2 || accessory3 === accessory1) {
+        		accessory3 = accessories[Math.floor(Math.random()*accessories.length)]
+        	}
+        }
+
+        headerlabel.innerHTML = `THE "${hatname.toUpperCase()} / ${hoodiename.toUpperCase()} / ${pantname.toUpperCase()} / ${shoename.toUpperCase()}" FIT 🔥🔥🔥`
+        
+        a1pic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${accessory1}-removebg-preview.png`
+        a2pic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${accessory2}-removebg-preview.png`
+        a3pic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${accessory3}-removebg-preview.png`
+        shoepic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${shoe}-removebg-preview.png`
+        hatpic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${hat}-removebg-preview.png`
+        pantspic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${pant}-removebg-preview.png`
+        hoodiepic.src = `file:///Users/lucapetroni/Desktop/WebProjects/random_fit/${hoodie}-removebg-preview.png`
+
+        setTimeout(function() {
+        	hatpic.style.visibility = "visible"
+        	setTimeout(function() {
+        		hoodiepic.style.visibility = "visible"
+        		setTimeout(function() {
+        			pantspic.style.visibility = "visible"
+        			setTimeout(function() {
+        				shoepic.style.visibility = "visible"
+        				setTimeout(function() {
+        					a1pic.style.visibility = "visible"
+        					a2pic.style.visibility = "visible"
+        					a3pic.style.visibility = "visible"
+        					setTimeout(function() {
+        						headerlabel.style.visibility = "visible"
+							}, 1000)
+						}, 1000)
+					}, 1000)
+				}, 1000)
+			}, 1000)
+		}, 1000);
+
+    }
+</script>
+</html>
